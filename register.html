@@ -1,0 +1,300 @@
+
+<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"></head>
+
+  <!-- START SIGMA IMPORTS -->
+  <script src="./sigma.js/src/sigma.core.js"></script>
+  <script src="./sigma.js/src/conrad.js"></script>
+  <script src="./sigma.js/src/utils/sigma.utils.js"></script>
+  <script src="./sigma.js/src/utils/sigma.polyfills.js"></script>
+  <script src="./sigma.js/src/sigma.settings.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.dispatcher.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.configurable.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.graph.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.camera.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.quad.js"></script>
+  <script src="./sigma.js/src/classes/sigma.classes.edgequad.js"></script>
+  <script src="./sigma.js/src/captors/sigma.captors.mouse.js"></script>
+  <script src="./sigma.js/src/captors/sigma.captors.touch.js"></script>
+  <script src="./sigma.js/src/renderers/sigma.renderers.canvas.js"></script>
+  <script src="./sigma.js/src/renderers/sigma.renderers.webgl.js"></script>
+  <script src="./sigma.js/src/renderers/sigma.renderers.svg.js"></script>
+  <script src="./sigma.js/src/renderers/sigma.renderers.def.js"></script>
+  <script src="./sigma.js/src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+  <script src="./sigma.js/src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+  <script src="./sigma.js/src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+  <script src="./sigma.js/src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+  <script src="./sigma.js/src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+  <script src="./sigma.js/src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.utils.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.nodes.def.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.edges.def.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.edges.curve.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.labels.def.js"></script>
+  <script src="./sigma.js/src/renderers/svg/sigma.svg.hovers.def.js"></script>
+  <script src="./sigma.js/src/middlewares/sigma.middlewares.rescale.js"></script>
+  <script src="./sigma.js/src/middlewares/sigma.middlewares.copy.js"></script>
+  <script src="./sigma.js/src/misc/sigma.misc.animation.js"></script>
+  <script src="./sigma.js/src/misc/sigma.misc.bindEvents.js"></script>
+  <script src="./sigma.js/src/misc/sigma.misc.bindDOMEvents.js"></script>
+  <script src="./sigma.js/src/misc/sigma.misc.drawHovers.js"></script>
+  <!-- END SIGMA IMPORTS -->
+  <script src="./sigma.js/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+  <script src="./sigma.js/plugins/sigma.parsers.cypher/sigma.parsers.cypher.js"></script>
+  <script src="./sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+  <script src="./sigma.js/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+  <script src="./sigma.js/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.customShapes/shape-library.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.customShapes/sigma.renderers.customShapes.js"></script>
+  <script src="./sigma.js/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
+  <script src="./sigma.js/plugins/sigma.layouts.forceLink/worker.js"></script>
+  <script src="./sigma.js/plugins/sigma.layouts.forceLink/supervisor.js"></script>
+  <script src="./sigma.js/plugins/sigma.plugins.neighborhoods/sigma.plugins.neighborhoods.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/utils.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curve.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curvedArrow.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curve.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edgehovers.curvedArrow.js"></script>
+  <script src="./sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.labels.curve.js"></script>
+
+  <div id="container">
+    <style>
+      #graph-container {
+        position: absolute;
+        top: 10%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height:80%;
+      }
+      #searchbutton{
+        position: absolute;
+        top:0%;
+        left:0;
+        bottom:0;
+        right: 0;
+        height:10%;
+      }
+      .indivbutton{
+        display: inline;
+        float:left;
+        margin: 0% 5% 0% 5%;
+      }
+      .login{
+        top:50%;
+        left:50%;
+        font-size:25px;
+        position:absolute;
+      }
+      #movietable,#persontable{
+        visibility: hidden;
+        position: absolute;
+        bottom:0%;
+        width:100%;
+        height:10%;
+        margin: 0;
+        padding: 0;
+        left:0%;
+      }
+      table,th,td,tr{
+        border:2px solid #000;
+        border-collapse: collapse;
+      }
+      td{
+        text-align: center;
+      }
+      body{
+        overflow: hidden;
+      }
+      #searchMovie{
+        left: 6%;
+        border: 2px solid #eee;
+        border-radius: 30px;
+        height: 65%;
+        width: 20%;
+        text-align: left;
+        font-size: 18px;
+        text-indent: 25px;
+        position: absolute;
+        top: 18%;
+      }
+      #searchMovie:hover{
+        border-color: #16a085;
+      }
+      #searchPerson{
+        border: 2px solid #eee;
+        border-radius: 30px;
+        height: 65%;
+        width: 20%;
+        text-align: left;
+        font-size: 18px;
+        text-indent: 25px;
+        position: absolute;
+        top: 18%;
+        left: 38%;
+      }
+      #searchPerson:hover{
+        border-color: #16a085;
+      }
+      *:focus {
+        outline: 0;
+      }
+      #year1,#year2{
+        border: 2px solid #eee;
+        border-radius: 30px;
+        height: 65%;
+        width: 10%;
+        text-align: left;
+        font-size: 18px;
+        text-indent: 25px;
+        position: absolute;
+        top: 18%;
+      }
+      #year1{
+        left:68%;
+      }
+      #year2{
+        left: 83%;
+      }
+    </style>
+    <div id="searchbutton" style="background:#323232">
+      <div class="indivbutton">
+        <!--input type="text" id="searchMovie" placeholder="Search Movie" name="fname">
+        <span><i class="fa fa-search fa-lg" id="submitMovie" style="position: absolute;
+            top: 39%;
+            left: 23%;
+            color: rgb(170, 170, 170);
+            cursor: pointer" onmouseover="this.style.color='#16a085'"
+            onmouseout="this.style.color='#aaa'"></i></span-->
+      </div>
+      <div class="indivbutton">
+        <!--input type="text" id="searchPerson" placeholder="Search Person" name="fname">
+        <span><i class="fa fa-search fa-lg" id="submitPerson" style="position: absolute;
+            top: 39%;
+            left: 55%;
+            color: rgb(170, 170, 170);
+            cursor: pointer;" onmouseover="this.style.color='#16a085'"
+            onmouseout="this.style.color='#aaa'"></i></span-->
+      </div>
+      <div class="indivbutton">
+        <!--input type="number" id="year1" placeholder="Start Year" name="fname"><span style="color: #aaa;
+          left: 79%;
+          position: absolute;
+          top: 32%;
+          font-size: 24px;">TO</span>
+        <input type="number" id="year2" placeholder="End Year" name="fname">
+
+        <span><i class="fa fa-search fa-lg" id="submitYear" style="position: absolute;
+            top: 39%;
+            left: 94%;
+            color: rgb(170, 170, 170);
+            cursor: pointer;" onmouseover="this.style.color='#16a085'"
+            onmouseout="this.style.color='#aaa'"></i></span-->
+    </div>
+  </div>
+  <div id="graph-container" style="background-color:#F3F2F1">
+    <div class="login">
+      <input  id="name" type="text" placeholder="Name"><br>
+      <input  id="username" type="text" placeholder="Username"><br>
+      <input  id="password" type="password" placeholder="Password"><br>
+      <button  id="submit" type="button">Register</button><br>
+    </div>
+    &nbsp;
+  </div>
+
+  <table id="movietable">
+    <tr>
+      <th>Type</th>
+      <th>Id</th>
+      <th>Released</th>
+      <th>Title</th>
+      <th>Tagline</th>
+    </tr>
+    <tr>
+      <td>Movie</td>
+      <td id="movieid"></td>
+      <td id="ryear"></td>
+      <td id="title"></td>
+      <td id="tagline"></td>
+    </tr>
+  </table>
+  <table id="persontable">
+    <tr>
+      <th>Type</th>
+      <th>Id</th>
+      <th>Born</th>
+      <th>Name</th>
+    </tr>
+    <tr>
+      <td>Person</td>
+      <td id="personid"></td>
+      <td id="byear"></td>
+      <td id="pname"></td>
+    </tr>
+
+  </table>
+
+
+  <script type="application/javascript">
+
+  document.getElementById('submit').onclick = function(){
+    addUser();
+  }
+  db = new sigma.plugins.neighborhoods();
+
+  function clear_graph() {
+
+    s.graph.clear();
+
+  };
+  function addUser(){
+    console.log("clicked");
+    temp = new sigma();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var name = document.getElementById('name').value;
+    sigma.neo4j.cypher(
+      {url: 'http://localhost:7474', user: 'neo4j', password: 'bhavana' },
+      'match (n:User) where n.username="'+username+'" return n',
+      temp,
+      function(data){
+        var returnedNodes = data.graph.nodes().length;
+        console.log(data.graph.nodes().length);
+        console.log(data.graph.edges().length);
+        checkExists(returnedNodes,username,password,name);
+      }
+    );
+  }
+  function checkExists(returnedNodes,username,password,name){
+    if (returnedNodes == 1){
+      document.getElementById('graph-container').innerHTML = '<h1> User <i>'+username+'</i> already exists!</h1>';
+    }
+    else{
+      sigma.neo4j.cypher(
+        {url: 'http://localhost:7474', user: 'neo4j', password: 'bhavana' },
+        'Create (n:User {username:"'+username+'",password:"'+password+'",name:"'+name+'"}) return n;',
+        temp,
+        function(data){
+          var returnedNodes = data.graph.nodes().length;
+          if(returnedNodes == 1){
+            document.getElementById('graph-container').innerHTML = '<h1> User <i>'+username+'</i> successfully registered!</h1>';
+          }
+        }
+      );
+    }
+  }
+</script>
